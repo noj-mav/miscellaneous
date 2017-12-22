@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document | Title | Owner</title>
+    <style>
+        .hiddenTextArea {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 2em;
+            height: 2em;
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            background: transparent;
+            color: transparent;    
+            visibility: hidden;
+        }
+        .pinkButton {
+            background-color: #E80074;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0px 0px 1px 0px #999;
+            box-sizing: border-box;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 20px;
+            margin: 0 10px;
+            max-width: 180px;
+            padding: 10px;
+            text-align: center;
+            text-shadow: #999 1px 1px 3px;
+            transition: box-shadow 0.2s ease-out;
+            white-space: normal;
+        }
+        .pinkButton:hover {
+            box-shadow: 0px 2px 3px 2px #999;
+            transition: box-shadow 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a test.</h1>
+    <div id="divOne">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis mollis scelerisque. Etiam vulputate sed odio quis ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam at volutpat urna, sed commodo urna. Vivamus id justo dignissim diam rhoncus consectetur. Aliquam eu nulla vulputate, auctor odio eu, congue libero. Vestibulum eget convallis arcu, eget congue nunc. Nunc posuere imperdiet est vel posuere. Suspendisse sodales tincidunt dui eget lobortis.</p>
+        <p>
+            Praesent viverra nulla eget quam interdum auctor. Duis porttitor tincidunt odio quis rhoncus. Aenean nec convallis lorem. Sed pretium cursus semper. Aenean vitae hendrerit nunc. Sed in lorem id turpis rutrum scelerisque sit amet et diam. Cras sed dolor ut erat pulvinar tristique volutpat id nunc. Curabitur volutpat tempor porttitor. Maecenas tincidunt cursus ligula, eget cursus nulla interdum quis. Maecenas in suscipit libero, eget rhoncus turpis. Nulla eu augue in risus feugiat facilisis. Praesent dignissim, dui quis imperdiet efficitur, felis orci lobortis orci, vitae accumsan tortor est a lectus. Sed volutpat ante vulputate, luctus dolor ut, finibus ex. Morbi laoreet, nulla a laoreet tincidunt, ligula tellus dictum nulla, in bibendum est diam nec nulla.</p>
+        <p>
+            Praesent viverra nulla eget quam interdum auctor. Duis porttitor tincidunt odio quis rhoncus. Aenean nec convallis lorem. Sed pretium cursus semper. Aenean vitae hendrerit nunc. Sed in lorem id turpis rutrum scelerisque sit amet et diam. Cras sed dolor ut erat pulvinar tristique volutpat id nunc. Curabitur volutpat tempor porttitor. Maecenas tincidunt cursus ligula, eget cursus nulla interdum quis. Maecenas in suscipit libero, eget rhoncus turpis. Nulla eu augue in risus feugiat facilisis. Praesent dignissim, dui quis imperdiet efficitur, felis orci lobortis orci, vitae accumsan tortor est a lectus. Sed volutpat ante vulputate, luctus dolor ut, finibus ex. Morbi laoreet, nulla a laoreet tincidunt, ligula tellus dictum nulla, in bibendum est diam nec nulla.</p>
+        <p>
+            Praesent viverra nulla eget quam interdum auctor. Duis porttitor tincidunt odio quis rhoncus. Aenean nec convallis lorem. Sed pretium cursus semper. Aenean vitae hendrerit nunc. Sed in lorem id turpis rutrum scelerisque sit amet et diam. Cras sed dolor ut erat pulvinar tristique volutpat id nunc. Curabitur volutpat tempor porttitor. Maecenas tincidunt cursus ligula, eget cursus nulla interdum quis. Maecenas in suscipit libero, eget rhoncus turpis. Nulla eu augue in risus feugiat facilisis. Praesent dignissim, dui quis imperdiet efficitur, felis orci lobortis orci, vitae accumsan tortor est a lectus. Sed volutpat ante vulputate, luctus dolor ut, finibus ex. Morbi laoreet, nulla a laoreet tincidunt, ligula tellus dictum nulla, in bibendum est diam nec nulla.</p>
+        <p>
+            Mauris sed posuere libero. Donec ex metus, vulputate vitae erat hendrerit, volutpat rhoncus felis. Fusce hendrerit lorem urna, ut semper est ullamcorper eu. Sed semper purus a euismod gravida. Morbi auctor purus vitae justo consectetur pretium. Phasellus molestie tincidunt ligula in posuere. In bibendum nisi libero, eu ornare sapien dictum in. Mauris a tincidunt tellus. Suspendisse non semper neque. Proin pretium laoreet justo, sed pretium erat tempor at. Vestibulum a gravida urna, in aliquam sapien. Phasellus vel velit ex. Aenean maximus id orci ut tempor. 
+        </p>
+    </div>
+    <!-- <input id="one-click-copy-to-clipboard" type="button" value="Button to Copy Stuff"> -->
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event){
+        var copyToClipboardButton = createNewInput("button", "copy-to-clipboard", "Click here to Copy Text", "pinkButton");
+        var clearClipboardButton = createNewInput("button", "clear-clipboard", "Click here to Clear Clipboard", "pinkButton");
+        // var copyToClipboardButton = document.getElementById(inputID);
+
+        copyToClipboardButton.addEventListener("click", function(event){
+            var divOne = document.getElementById("divOne");    
+            var stuffToCopy = divOne.innerText;  
+            copyTextToClipboard(stuffToCopy);
+        });
+
+        clearClipboardButton.addEventListener("click", function(event){
+            var stuffToCopy = " ";
+            copyTextToClipboard(stuffToCopy);
+        });
+    });
+
+    function createNewInput(type="button",id="",value="",classname=""){
+        var newButton = document.createElement("input");
+        setMultipleAttributes(newButton, {
+            "type" : type,
+            "id" : id,
+            "value" : value,
+            "class" : classname
+        });
+        document.body.appendChild(newButton);
+        if (id) return document.getElementById(id);
+        else return null;
+    }
+
+    function setMultipleAttributes(element, attributes) {
+        for (var key in attributes) {
+            element.setAttribute(key, attributes[key]);
+        }
+    }
+
+    function copyTextToClipboard(text) {     
+        var textArea = document.createElement("textarea");
+        // textArea.setAttribute("class", "hiddenTextArea");
+        // textArea.setAttribute("className", "hiddenTextArea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Copying text command was ' + msg);
+        } 
+        catch (err) {
+            console.log('Oops, unable to copy');
+        }
+        document.body.removeChild(textArea);
+    }
+</script>
+</html>
